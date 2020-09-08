@@ -1,0 +1,226 @@
+#include "stdio.h"
+#include "math.h"
+
+//-----------------------------------------------
+
+const double accuracy = 1E-6;  ///< Постоянная для точности определения нуля
+
+//-----------------------------------------------
+
+int Solvelin (double a, double b);
+int Solvesquare (double a, double b, double c);
+int isZero (double x);
+
+//-----------------------------------------------
+
+/*!
+
+    \brief Главная функция программы
+    \author Ivanov Ivan
+    \version 1.0
+    \date 7.09.2020г.
+    \details Программа включает в себя решение линейных уравнений как частных случаев квадратных
+    \code
+    int main()
+
+    {
+
+    double a = 0, b = 0, c= 0;
+
+    printf ("\n"
+            " Solving square equation: ax^2 + bx + c = 0.\n"
+            " Enter a: ");
+    scanf (" %lg", &a);
+
+    printf (" Enter b: ");
+    scanf (" %lg", &b);
+
+    printf (" Enter c: ");
+    scanf (" %lg", &c);
+
+    if (isZero(a) == 0)
+        Solvelin (b, c);
+
+    else
+        Solvesquare (a, b, c);
+
+    return 0;
+    }
+    \endcode
+
+*/
+int main()
+
+    {
+
+    double a = 0, b = 0, c= 0;
+
+    printf ("\n"
+            " Solving square equation: ax^2 + bx + c = 0.\n"
+            " Enter a: ");
+    scanf (" %lg", &a);
+
+    printf (" Enter b: ");
+    scanf (" %lg", &b);
+
+    printf (" Enter c: ");
+    scanf (" %lg", &c);
+
+    if (isZero(a) == 0)
+        Solvelin (b, c);
+
+    else
+        Solvesquare (a, b, c);
+
+    return 0;
+    }
+
+
+//--------------------------------------------------------------
+
+/*!
+    \brief Функция для решения линейного уравнения
+    \param[in] a, b коэффициенты уравнения вида ax + b = 0
+    \details Функция помимо решения линейного уравнения выводит решение на экран
+    \code
+    int Solvelin (double a, double b)
+
+    {
+
+    printf ("\n"
+            " You have entered a linear equation that has \n");
+
+    if ((isZero(a) == 0) && (isZero(b) != 0))
+
+        printf (" no roots!\n");
+
+    if ((isZero(a) == 0) && (isZero(b) == 0))
+
+        printf (" infinity roots!\n");
+
+    if (isZero(a) != 0) {
+        double x;
+        x = -b/a;
+        printf (" 1 root: \n x = %lg\n", x);
+        }
+    return 0;
+
+    }
+    \endcode
+
+*/
+
+int Solvelin (double a, double b)
+
+{
+
+printf ("\n"
+        " You have entered a linear equation that has \n");
+
+if ((isZero(a) == 0) && (isZero(b) != 0))
+
+    printf (" no roots!\n");
+
+if ((isZero(a) == 0) && (isZero(b) == 0))
+
+    printf (" infinity roots!\n");
+
+if (isZero(a) != 0) {
+    double x;
+    x = -b/a;
+    printf (" 1 root: \n x = %lg\n", x);
+    }
+return 0;
+
+}
+
+//-------------------------------------------------------
+
+/*!
+    \brief Функция служит для решения квадратного уравнения
+    \param[in] a, b, с коэффициенты уравнения вида ax^2 + bx + с = 0
+    \details Функция помимо решения квадратного уравнения выводит решение на экран
+    \code
+    int Solvesquare (double a, double b, double c)
+
+    {
+
+    double discr = b*b - 4*a*c;
+
+    if (discr > 0) {
+
+    double sqrtdiscr = sqrt(b*b-4*a*c), x1, x2;
+
+    x1 = (-b+sqrtdiscr)/2/a;
+    x2 = (-b-sqrtdiscr)/2/a;
+
+    printf (" 2 roots: x1 = %lg\n", x1);
+    printf ("          x2 = %lg\n", x2);
+
+    }
+
+    if (isZero(discr) == 0) {
+    double x;
+    x = -b/2/a;
+    printf (" 1 root: x1 = x2 = %lg\n", x);
+
+    }
+    \endcode
+
+*/
+
+int Solvesquare (double a, double b, double c)
+
+        {
+
+        double discr = b*b - 4*a*c;
+
+        if (discr > 0) {
+
+            double sqrtdiscr = sqrt(b*b-4*a*c), x1, x2;
+
+            x1 = (-b+sqrtdiscr)/2/a;
+            x2 = (-b-sqrtdiscr)/2/a;
+
+            printf (" 2 roots: x1 = %lg\n", x1);
+            printf ("          x2 = %lg\n", x2);
+
+            }
+
+        if (isZero(discr) == 0) {
+            double x;
+            x = -b/2/a;
+            printf (" 1 root: x1 = x2 = %lg\n", x);
+
+            }
+        if (discr < 0)
+
+           printf (" No roots!\n");
+
+        return 0;
+
+        }
+
+//-------------------------------------------------------
+
+/*!
+    \brief Эта функция служит для определения точности сравнения с нулём
+    \param[in] x - сравниваемое число
+    \return  1 - x отличен от нуля более, чем значение константы accuracy, 0 - х отличен от нуля менее, чем значение константы accuracy
+    \code
+    int isZero (double x)
+    {
+    if (fabs (x) >= accuracy)
+    return 1;
+    return 0;
+    }
+    \endcode
+
+*/
+
+int isZero (double x)
+{
+if (fabs (x) >= accuracy)
+return 1;
+return 0;
+}

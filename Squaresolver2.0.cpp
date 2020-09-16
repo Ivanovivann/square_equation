@@ -61,14 +61,13 @@ double a   = 0,
        c   = 0;
 int nroots = 0;
 
-printf (" Solving square equation: ax^2 + bx + c = 0.\n"
-        " Enter a: ");
+printf (" Solving square equation: ax^2 + bx + c = 0.\n Enter a: \n ");
 a = onlyNumbers();
 
-printf (" Enter b: ");
+printf (" Enter b: \n ");
 b = onlyNumbers();
 
-printf (" Enter c: ");
+printf (" Enter c: \n ");
 c = onlyNumbers();
 
 double x1 = 0, x2 = 0;
@@ -121,16 +120,13 @@ return 0;
 int debug_test()
 
 {
-FILE* input;
-FILE* output;
+FILE* inputSolver = fopen("inputSolver.txt", "r");
+FILE* outputSolver = fopen("outputSolver.txt", "w");
 
-input = fopen("input.txt", "r");
-output = fopen("output.txt", "w");
-
-if (input == NULL)
+if (inputSolver == NULL)
 
     {
-        fprintf(stderr, "This file is empty!");
+        fprintf(stderr, "This file is empty!\n");
         return 1;
     }
 
@@ -145,7 +141,7 @@ int i      = 0,
 
 for (i = 0; i < NUMBER_OF_TESTS; i++)
     {
-        fscanf (input, "%lg %lg %lg", &a, &b, &c);
+        fscanf (inputSolver, "%lg %lg %lg", &a, &b, &c);
 
         if (isZero(a) == 0)
             nroots = Solvelin (b, c, &x1);
@@ -155,22 +151,22 @@ for (i = 0; i < NUMBER_OF_TESTS; i++)
 
         switch (nroots) {
             case INFTY:  {
-                fprintf (output, " Infinity roots\n");
+                fprintf (outputSolver, " Infinity roots\n");
                 break;
                 }
 
             case 0:  {
-                fprintf (output, " No roots!\n");
+                fprintf (outputSolver, " No roots!\n");
                 break;
                 }
 
             case 1:  {
-                fprintf (output, " %lg\n", x1);
+                fprintf (outputSolver, " %lg\n", x1);
                 break;
                 }
 
             case 2:  {
-                fprintf (output, " %lg %lg\n", x1, x2);
+                fprintf (outputSolver, " %lg %lg\n", x1, x2);
                 break;
                 }
 
@@ -181,81 +177,81 @@ for (i = 0; i < NUMBER_OF_TESTS; i++)
 
         case 1:  {
             if (nroots == 0)
-                fprintf (output, " Test %d is ok\n\n", nt);
+                fprintf (outputSolver, " Test %d is ok\n\n", nt);
             else
-                fprintf (output, " Test %d is NOT ok\n", nt);
+                fprintf (outputSolver, " Test %d is NOT ok\n", nt);
             break;
             }
 
         case 2:  {
             if ((nroots == 1) && (isNumber(x1,(-1.4)) == 0))
-                fprintf (output, " Test %d is ok\n\n", nt);
+                fprintf (outputSolver, " Test %d is ok\n\n", nt);
             else
-                fprintf (output, " Test %d is NOT ok\n\n", nt);
+                fprintf (outputSolver, " Test %d is NOT ok\n\n", nt);
             break;
             }
 
         case 3:  {
             if (nroots == 0)
-                fprintf (output, " Test %d is ok\n\n", nt);
+                fprintf (outputSolver, " Test %d is ok\n\n", nt);
             else
-                fprintf (output, " Test %d is NOT ok\n\n", nt);
+                fprintf (outputSolver, " Test %d is NOT ok\n\n", nt);
             break;
             }
 
         case 4:  {
             if ((nroots == 1) && (isZero(x1) == 0))
-                fprintf (output, " Test %d is ok\n\n", nt);
+                fprintf (outputSolver, " Test %d is ok\n\n", nt);
             else
-                fprintf (output, " Test %d is NOT ok\n\n", nt);
+                fprintf (outputSolver, " Test %d is NOT ok\n\n", nt);
             break;
             }
 
         case 5:  {
             if ((nroots == 1) && (isZero(x1) == 0))
-                fprintf (output, " Test %d is ok\n\n", nt);
+                fprintf (outputSolver, " Test %d is ok\n\n", nt);
             else
-                fprintf (output, " Test %d is NOT ok\n\n", nt);
+                fprintf (outputSolver, " Test %d is NOT ok\n\n", nt);
             break;
             }
 
         case 6:  {
             if ((nroots == 2) && (isZero(x1) == 0) && (isNumber(x2,(-2.5)) == 0))
-                fprintf (output, " Test %d is ok\n\n", nt);
+                fprintf (outputSolver, " Test %d is ok\n\n", nt);
             else
-                fprintf (output, " Test %d is NOT ok\n\n", nt);
+                fprintf (outputSolver, " Test %d is NOT ok\n\n", nt);
             break;
             }
 
         case 7:  {
             if (nroots == INFTY)
-                fprintf (output, " Test %d is ok\n\n", nt);
+                fprintf (outputSolver, " Test %d is ok\n\n", nt);
             else
-                fprintf (output, " Test %d is NOT ok\n\n", nt);
+                fprintf (outputSolver, " Test %d is NOT ok\n\n", nt);
             break;
             }
 
         case 8:  {
             if (nroots == 0)
-                fprintf (output, " Test %d is ok\n\n", nt);
+                fprintf (outputSolver, " Test %d is ok\n\n", nt);
             else
-                fprintf (output, " Test %d is NOT ok\n\n", nt);
+                fprintf (outputSolver, " Test %d is NOT ok\n\n", nt);
             break;
             }
 
         case 9:  {
             if ((nroots == 1) && (isNumber(x1,(-1.333333)) == 0))
-                fprintf (output, " Test %d is ok\n\n", nt);
+                fprintf (outputSolver, " Test %d is ok\n\n", nt);
             else
-                fprintf (output, " Test %d is NOT ok\n\n", nt);
+                fprintf (outputSolver, " Test %d is NOT ok\n\n", nt);
             break;
             }
 
         case 10:  {
             if ((nroots == 2) && (isNumber(x1,(1)) == 0) && (isNumber(x2,(-3)) == 0))
-                fprintf (output, " Test %d is ok\n\n", nt);
+                fprintf (outputSolver, " Test %d is ok\n\n", nt);
             else
-                fprintf (output, " Test %d is NOT ok\n\n", nt);
+                fprintf (outputSolver, " Test %d is NOT ok\n\n", nt);
             break;
             }
 
@@ -267,8 +263,8 @@ for (i = 0; i < NUMBER_OF_TESTS; i++)
 
 printf("All tests are done\n");
 
-fclose(input);
-fclose(output);
+fclose(inputSolver);
+fclose(outputSolver);
 
 return 0;
 }

@@ -1,0 +1,30 @@
+1.81046e+007
+Test 1 is ok 
+
+0
+Test 2 is ok 
+
+-1
+Test 3 is ok 
+
+4096
+Test 4 is ok 
+
+0.008
+Test 5 is ok 
+
+1.5625e+010
+Test 6 is ok 
+
+10000
+Test 7 is ok 
+
+0.0294118
+Test 8 is ok 
+
+144
+Test 9 is ok 
+
+523
+Test 10 is ok 
+

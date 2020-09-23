@@ -45,15 +45,15 @@ if (input == NULL)
 double  x      = 0;
 int i          = 0,
     nt         = 0,
-    comparator = 0;
+    is_zero    = 0;
 
 for (i = 0; i < NUMBER_OF_TESTS; i++)
     {
         fscanf (input, "%lg", &x);
 
-        comparator = isZero(x);
+        is_zero = isZero(x);
 
-        switch (comparator) {
+        switch (is_zero) {
 
             case 0:  {
                 fprintf (output, "It is approximately '0' \n");
@@ -71,7 +71,7 @@ for (i = 0; i < NUMBER_OF_TESTS; i++)
     switch (nt = i + 1) {     //nt - numbertest
 
         case 1:  {
-            if (comparator == 1)
+            if (is_zero == 1)
                 fprintf (output, "Test %d is ok \n\n", nt);
             else
                 fprintf (output, "Test %d is NOT ok \n\n", nt);
@@ -79,7 +79,7 @@ for (i = 0; i < NUMBER_OF_TESTS; i++)
             }
 
         case 2:  {
-            if (comparator == 1)
+            if (is_zero == 1)
                 fprintf (output, "Test %d is ok \n\n", nt);
             else
                 fprintf (output, "Test %d is NOT ok \n\n", nt);
@@ -87,7 +87,7 @@ for (i = 0; i < NUMBER_OF_TESTS; i++)
             }
 
         case 3:  {
-            if (comparator == 1)
+            if (is_zero == 1)
                 fprintf (output, "Test %d is ok \n\n", nt);
             else
                 fprintf (output, "Test %d is NOT ok \n\n", nt);
@@ -95,7 +95,7 @@ for (i = 0; i < NUMBER_OF_TESTS; i++)
             }
 
         case 4:  {
-            if (comparator == 1)
+            if (is_zero == 1)
                 fprintf (output, "Test %d is ok \n\n", nt);
             else
                 fprintf (output, "Test %d is NOT ok \n\n", nt);
@@ -103,7 +103,7 @@ for (i = 0; i < NUMBER_OF_TESTS; i++)
             }
 
         case 5:  {
-            if (comparator == 0)
+            if (is_zero == 0)
                 fprintf (output, "Test %d is ok \n\n", nt);
             else
                 fprintf (output, "Test %d is NOT ok \n\n", nt);
@@ -111,7 +111,7 @@ for (i = 0; i < NUMBER_OF_TESTS; i++)
             }
 
         case 6:  {
-            if (comparator == 0)
+            if (is_zero == 0)
                 fprintf (output, "Test %d is ok \n\n", nt);
             else
                 fprintf (output, "Test %d is NOT ok \n\n", nt);
@@ -119,7 +119,7 @@ for (i = 0; i < NUMBER_OF_TESTS; i++)
             }
 
         case 7:  {
-            if (comparator == 1)
+            if (is_zero == 1)
                 fprintf (output, "Test %d is ok \n\n", nt);
             else
                 fprintf (output, "Test %d is NOT ok \n\n", nt);
@@ -127,7 +127,7 @@ for (i = 0; i < NUMBER_OF_TESTS; i++)
             }
 
         case 8:  {
-            if (comparator == 0)
+            if (is_zero == 0)
                 fprintf (output, "Test %d is ok \n\n", nt);
             else
                 fprintf (output, "Test %d is NOT ok \n\n", nt);
@@ -135,7 +135,7 @@ for (i = 0; i < NUMBER_OF_TESTS; i++)
             }
 
         case 9:  {
-            if (comparator == 0)
+            if (is_zero == 0)
                 fprintf (output, "Test %d is ok \n\n", nt);
             else
                 fprintf (output, "Test %d is NOT ok \n\n", nt);
@@ -143,7 +143,7 @@ for (i = 0; i < NUMBER_OF_TESTS; i++)
             }
 
         case 10:  {
-            if (comparator == 1)
+            if (is_zero == 1)
                 fprintf (output, "Test %d is ok \n\n", nt);
             else
                 fprintf (output, "Test %d is NOT ok \n\n", nt);
@@ -180,24 +180,24 @@ if (input == NULL)
         return 1;
     }
 
-double  x      = 0,
-    comparator = 0;
-int i          = 0,
-    nt         = 0,
-    y          = 0;
+double  x       = 0,
+    power_value = 0;
+int i           = 0,
+    nt          = 0,
+    y           = 0;
 
 for (i = 0; i < NUMBER_OF_TESTS; i++)
     {
     fscanf (input, "%lg %d", &x, &y);
 
-    comparator = power(x, y);
+    power_value = power(x, y);
 
-    fprintf (output, "%lg\n", comparator);
+    fprintf (output, "%lg\n", power_value);
 
     switch (nt = i + 1) {     //nt - numbertest
 
         case 1:  {
-            if (isNumber(comparator, 18104624.18) == 0)
+            if (isNumber(power_value, 18104624.18) == 0)
                 fprintf (output, "Test %d is ok \n\n", nt);
             else
                 fprintf (output, "Test %d is NOT ok \n\n", nt);
@@ -205,7 +205,7 @@ for (i = 0; i < NUMBER_OF_TESTS; i++)
             }
 
         case 2:  {
-            if (isNumber(comparator, 0) == 0)
+            if (isNumber(power_value, 0) == 0)
                 fprintf (output, "Test %d is ok \n\n", nt);
             else
                 fprintf (output, "Test %d is NOT ok \n\n", nt);
@@ -213,7 +213,7 @@ for (i = 0; i < NUMBER_OF_TESTS; i++)
             }
 
         case 3:  {
-            if (isNumber(comparator, -1) == 0)
+            if (isNumber(power_value, -1) == 0)
                 fprintf (output, "Test %d is ok \n\n", nt);
             else
                 fprintf (output, "Test %d is NOT ok \n\n", nt);
@@ -221,7 +221,7 @@ for (i = 0; i < NUMBER_OF_TESTS; i++)
             }
 
         case 4:  {
-            if (isNumber(comparator, 4096) == 0)
+            if (isNumber(power_value, 4096) == 0)
                 fprintf (output, "Test %d is ok \n\n", nt);
             else
                 fprintf (output, "Test %d is NOT ok \n\n", nt);
@@ -229,7 +229,7 @@ for (i = 0; i < NUMBER_OF_TESTS; i++)
             }
 
         case 5:  {
-            if (isNumber(comparator, 0.008) == 0)
+            if (isNumber(power_value, 0.008) == 0)
                 fprintf (output, "Test %d is ok \n\n", nt);
             else
                 fprintf (output, "Test %d is NOT ok \n\n", nt);
@@ -237,7 +237,7 @@ for (i = 0; i < NUMBER_OF_TESTS; i++)
             }
 
         case 6:  {
-            if (isNumber(comparator, 1.5625E10) == 0)
+            if (isNumber(power_value, 1.5625E10) == 0)
                 fprintf (output, "Test %d is ok \n\n", nt);
             else
                 fprintf (output, "Test %d is NOT ok \n\n", nt);
@@ -245,7 +245,7 @@ for (i = 0; i < NUMBER_OF_TESTS; i++)
             }
 
         case 7:  {
-            if (isNumber(comparator, 10000) == 0)
+            if (isNumber(power_value, 10000) == 0)
                 fprintf (output, "Test %d is ok \n\n", nt);
             else
                 fprintf (output, "Test %d is NOT ok \n\n", nt);
@@ -253,7 +253,7 @@ for (i = 0; i < NUMBER_OF_TESTS; i++)
             }
 
         case 8:  {
-            if (isNumber(comparator, 0.02941) == 0)
+            if (isNumber(power_value, 0.02941) == 0)
                 fprintf (output, "Test %d is ok \n\n", nt);
             else
                 fprintf (output, "Test %d is NOT ok \n\n", nt);
@@ -261,7 +261,7 @@ for (i = 0; i < NUMBER_OF_TESTS; i++)
             }
 
         case 9:  {
-            if (isNumber(comparator, 144) == 0)
+            if (isNumber(power_value, 144) == 0)
                 fprintf (output, "Test %d is ok \n\n", nt);
             else
                 fprintf (output, "Test %d is NOT ok \n\n", nt);
@@ -269,7 +269,7 @@ for (i = 0; i < NUMBER_OF_TESTS; i++)
             }
 
         case 10:  {
-            if (isNumber(comparator, 523) == 0)
+            if (isNumber(power_value, 523) == 0)
                 fprintf (output, "Test %d is ok \n\n", nt);
             else
                 fprintf (output, "Test %d is NOT ok \n\n", nt);

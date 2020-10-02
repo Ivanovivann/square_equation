@@ -1,8 +1,15 @@
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+
+
+//=============================================================================
+
 const int MAX_NUMBER = 1000;  ///< Максимальное количество знаков в вводимом числе
 
 //=============================================================================
 
-double onlyNumbers();
+double isNumber_notWord();
 
 double power (double a, int b);
 
@@ -15,7 +22,7 @@ double power (double a, int b);
 
 */
 
-double onlyNumbers()
+double isNumber_notWord()
 
     {
     int number[MAX_NUMBER],
@@ -49,7 +56,7 @@ double onlyNumbers()
             printf(" This is not number!\n");
             printf(" ");
 
-            return onlyNumbers();
+            return isNumber_notWord();
             }
 
 
@@ -62,7 +69,7 @@ double onlyNumbers()
                 printf(" This is not number!\n");
                 printf(" ");
 
-                return onlyNumbers();
+                return isNumber_notWord();
                 }
 
             e_location = i;
@@ -126,7 +133,7 @@ double onlyNumbers()
                     printf(" This is not number!\n");
                     printf(" ");
 
-                    return onlyNumbers();
+                    return isNumber_notWord();
                     }
 
                 if ((number[i] >= '0') && (number[i] <= '9') && (numberpoints <= 1))
@@ -138,7 +145,7 @@ double onlyNumbers()
 
     if (quantity == 0)
 
-        return onlyNumbers();
+        return isNumber_notWord();
 
     switch(number_e) {
 
@@ -148,7 +155,7 @@ double onlyNumbers()
                 printf(" This is not number!\n");
                 printf(" ");
 
-                return onlyNumbers();
+                return isNumber_notWord();
                 }
 
             for (i = 0;((m == 1) && (i < (quantity))); i++)
@@ -177,7 +184,7 @@ double onlyNumbers()
                 printf(" This is not number!\n");
                 printf(" ");
 
-                return onlyNumbers();
+                return isNumber_notWord();
                 }
 
             for (i = 0;((m == 1) && (i < (quantity))); i++)

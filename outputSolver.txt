@@ -1,0 +1,30 @@
+ No roots!
+Test 1 is correct
+
+ -1.4
+Test 2 is correct
+
+ No roots!
+Test 3 is correct
+
+ 0
+Test 4 is correct
+
+ 0
+Test 5 is correct
+
+ 0 -2.5
+Test 6 is correct
+
+ Infinity roots
+Test 7 is correct
+
+ No roots!
+Test 8 is correct
+
+ -1.33333
+Test 9 is correct
+
+ 1 -3
+Test 10 is correct
+

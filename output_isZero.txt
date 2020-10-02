@@ -1,0 +1,30 @@
+0
+Test 1 is correct
+
+0
+Test 2 is correct
+
+0
+Test 3 is correct
+
+0
+Test 4 is correct
+
+1
+Test 5 is correct
+
+1
+Test 6 is correct
+
+0
+Test 7 is correct
+
+1
+Test 8 is correct
+
+1
+Test 9 is correct
+
+0
+Test 10 is correct
+

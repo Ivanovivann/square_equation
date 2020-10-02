@@ -14,8 +14,6 @@ int Solvesquare (double a, double b, double c, double* x1, double* x2);
 
 int isZero (double x);
 
-int isNumber (double x, double number);
-
 
 //=============================================================================
 
@@ -109,27 +107,6 @@ return 3;
 int isZero (double x)
 {
 if (fabs (x) >= ACCURACY)
-    return 1;
-
-return 0;
-}
-
-//-----------------------------------------------------------------------------
-
-
-/*!
-    \brief Эта функция служит для определения точности сравнения с нулём
-    \param[in] x - сравниваемое число, number - заданное число с которым сравнивают
-    \return  1 - x отличен от заданного числа более, чем значение константы ACCURACYNUMBER ,
-     0 - х отличен от заданного числа менее, чем значение константы ACCURACYNUMBER
-
-*/
-
-int isNumber (double x, double number)
-{
-double  delta = x - number;
-
-if (fabs (delta) >= ACCURACYNUMBER)
     return 1;
 
 return 0;

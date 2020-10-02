@@ -25,8 +25,8 @@ int manual_test();
 
     \brief Переключение режимов
     \author Ivanov Ivan
-    \version 2.0
-    \date 17.09.2020г.
+    \version 3.0
+    \date 3.10.2020г.
 
 */
 
@@ -100,7 +100,10 @@ switch (nroots) {
         break;
         }
 
-    default:;
+    default: {
+        printf (" Program works UNcorrectly!\n");
+        break;
+        }
     }
 
 return 0;
